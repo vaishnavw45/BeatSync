@@ -1,4 +1,16 @@
 {
-  "buildCommand": "cd apps/client && next build",
-  "outputDirectory": "apps/client/.next"
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "outputDirectory": "apps/client/.next",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/apps/client/$1"
+    }
+  ]
 }
